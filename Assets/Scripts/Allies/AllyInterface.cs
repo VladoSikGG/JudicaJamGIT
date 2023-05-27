@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BotInterface : MonoBehaviour
+public class AllyInterface : MonoBehaviour
 {
     //for movement
     [Header("For Movement")]
     [SerializeField] public float distanceToAttack;
-    [SerializeField] public float distanceToSee;
     [SerializeField] private float _speed;
     //for entaraction
     [Header("For Entaraction")]
@@ -30,5 +29,10 @@ public class BotInterface : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+    }
+
+    public void Attack()
+    {
+        
     }
 }

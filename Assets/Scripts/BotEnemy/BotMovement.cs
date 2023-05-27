@@ -19,9 +19,10 @@ public class BotMovement : BotInterface
             GoToTarget(_player);
             Debug.Log("gotoplayer");
         }
-        else if (distanceToAttack > Vector3.Distance(transform.position, _player.position))
+        else if (distanceToAttack > Vector3.Distance(transform.position, _player.position) && canFire)
         {
             //attack
+            Attack();
             Debug.Log("attack");
         }
         else
