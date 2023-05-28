@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Enemy.meta
 guid: 8f8601f4a1e714e8eb5d6b84558b7652
 folderAsset: yes
+========
+guid: 0851605490a599b46b6ac5cb681d93ea
+>>>>>>>> ac44aa374801c17ff6d4c652f94b3500eeb65443:Assets/TextMesh Pro/Examples & Extras/Scenes/26 - Dropdown Placeholder Example.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

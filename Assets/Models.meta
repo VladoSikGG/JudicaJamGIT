@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Models.meta
 guid: d3cc4c3aac3654bada8fcd41ba48f48a
 folderAsset: yes
+========
+guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
+>>>>>>>> ac44aa374801c17ff6d4c652f94b3500eeb65443:Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

@@ -62,6 +62,8 @@ public class BotInterface : MonoBehaviour
     {
         SelectObjects.unit.Remove(gameObject);
         Destroy(gameObject);
+        SelectObjects.unit.Remove(gameObject); //removal from unitSelected
+
     }
 
     public Vector3 NewDestination()
