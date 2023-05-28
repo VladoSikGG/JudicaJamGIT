@@ -213,7 +213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276830316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.1, z: -2.290001}
+  m_LocalPosition: {x: 0, y: -1, z: -2.290001}
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 976260723}
   - component: {fileID: 976260724}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyTank
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -460,8 +460,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 6.3839974, y: 4.745903, z: 11.5779085}
+  m_Center: {x: 0, y: 0.54160833, z: -4.7889543}
 --- !u!23 &976260719
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -482,7 +482,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d6de5f1b2e50045b7b395887a53069e1, type: 2}
+  - {fileID: 2100000, guid: f58fb9e6a3a1d4e14bb2ae682238b22c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -511,7 +511,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976260717}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4493585093827132993, guid: 26b1048266e5f41f88af6efeb1290299, type: 3}
 --- !u!4 &976260721
 Transform:
   m_ObjectHideFlags: 0
@@ -520,9 +520,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976260717}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.58}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: -4.6}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -541,13 +541,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   distanceToAttack: 5
-  distanceToSee: 25
-  _speed: 0.01
-  _turnSpeed: 0.1
+  distanceToSee: 30
+  _speed: 0.005
+  _turnSpeed: 0.01
   _distanceForPatrol: 10
-  _hp: 5
-  _damage: 1
-  _timeForReload: 2
+  _hp: 50
+  _damage: 2
+  _timeForReload: 5
   _timeForShot: 0.4
   _ships: []
   canFire: 1
@@ -708,8 +708,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 23.893202, y: 10.543879, z: 37.1031}
+  m_Center: {x: 0.1627178, y: 0.4498696, z: 1.2560433}
 --- !u!23 &2080539014
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -730,7 +730,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c5aef0e67f1874b01a7cae01f5e177f3, type: 2}
+  - {fileID: 2100000, guid: 86898f7e8854742cc9e0312040a687f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -759,7 +759,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080539012}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -567259905036692206, guid: d5026f0a7426d44c7b22d04afa8735a0, type: 3}
 --- !u!4 &2080539016
 Transform:
   m_ObjectHideFlags: 0
@@ -769,8 +769,8 @@ Transform:
   m_GameObject: {fileID: 2080539012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -788,12 +788,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  distanceToAttack: 5
+  distanceToAttack: 10
   distanceToSee: 0
   _speed: 0.01
   _turnSpeed: 0.1
   _distanceForPatrol: 0
-  _hp: 5
+  _hp: 100
   _damage: 2
   _timeForReload: 2
   _timeForShot: 0.4

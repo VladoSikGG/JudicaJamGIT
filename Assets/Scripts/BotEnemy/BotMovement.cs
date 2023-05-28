@@ -13,6 +13,7 @@ public class BotMovement : BotInterface
         //Debug.Log(Vector3.Distance(transform.position, _player.position));
         if (distanceToSee > Vector3.Distance(transform.position, allyShip.transform.position) && distanceToAttack < Vector3.Distance(transform.position, allyShip.transform.position))
         {
+            agent.Stop();
             RotateToTarget(allyShip.transform.position);
             GoToTarget(allyShip.transform.position);
             Debug.Log(allyShip.transform.position);
@@ -26,6 +27,7 @@ public class BotMovement : BotInterface
         }
         else if (distanceToSee < Vector3.Distance(transform.position, allyShip.transform.position))
         {
+            agent.Resume();
             //patrol
             Debug.Log("Patrol");
            //when enemy not near go to point
