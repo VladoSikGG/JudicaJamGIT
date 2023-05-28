@@ -4,30 +4,29 @@ using UnityEngine;
 
 public class BotMovement : BotInterface
 {
-    [SerializeField] private Transform _player;
     public Vector3 des;
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
+        GameObject allyShip = FindClosestAllyShip();
         //Debug.Log(Vector3.Distance(transform.position, _player.position));
-        if (distanceToSee >= Vector3.Distance(transform.position, _player.position) && distanceToAttack < Vector3.Distance(transform.position, _player.position))
+        if (distanceToSee >= Vector3.Distance(transform.position, allyShip.transform.position) && distanceToAttack < Vector3.Distance(transform.position, allyShip.transform.position))
         {
-            GoToTarget(_player.position);
+
+            GoToTarget(allyShip.transform.position);
+            
             Debug.Log("gotoplayer");
             isPatrol = false;
         }
-        else if (distanceToAttack >= Vector3.Distance(transform.position, _player.position) && canFire)
+        else if (distanceToAttack >= Vector3.Distance(transform.position, allyShip.transform.position) && canFire)
         {
             //attack
+            RotateToTarget(allyShip.transform.position);
             Attack();
             Debug.Log("attack");
         }
-        else if (distanceToSee < Vector3.Distance(transform.position, _player.position))
+        else if (distanceToSee < Vector3.Distance(transform.position, allyShip.transform.position))
         {
             Debug.Log("Patrol");
            //when enemy not near go to point

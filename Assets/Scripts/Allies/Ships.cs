@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Ships : MonoBehaviour
+public class Ships : BotInterface
 {
     public Camera cam;
     private NavMeshAgent agent;
     public bool canMove;
+    
 
 
     void Start()
     {
-        SelectObjects.unit.Add(gameObject); // добавление объектов в массив всех юнитов, которых мы можем выделить
+        SelectObjects.unit.Add(gameObject); // ?????????? ???????? ? ?????? ???? ??????, ??????? ?? ????? ????????
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -20,17 +21,27 @@ public class Ships : MonoBehaviour
     {
         if (canMove)
             MoveObject();
+
+        GameObject enemyShip = FindClosestEnemyShip();
+        if (Vector3.Distance(enemyShip.transform.position, transform.position) < distanceToAttack)
+        {
+            RotateToTarget(enemyShip.transform.position);
+            Attack();
+            
+        }
+        
     }
 
     void MoveObject()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition); //получение координат через луч
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition); //????????? ????????? ????? ???
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
-                agent.SetDestination(hit.point); //движение объекта
+                agent.SetDestination(hit.point); //???????? ???????
         }
     }
 
+    
 }

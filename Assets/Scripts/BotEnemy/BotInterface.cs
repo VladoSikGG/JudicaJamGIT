@@ -20,6 +20,9 @@ public class BotInterface : MonoBehaviour
     [SerializeField] private int _hp;
     [SerializeField] private int _damage;
     [SerializeField] private float _timeForReload;
+    [SerializeField] private float _timeForShot;
+    [SerializeField]private GameObject[] _ships;
+    private GameObject _closestShip;
 
     public bool canFire = true;
     [SerializeField]private LineRenderer _lineRender;
@@ -30,12 +33,13 @@ public class BotInterface : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
         _lineRender = GetComponent<LineRenderer>();
+        
+        
     }
 
     public void GoToTarget(Vector3 target)
     {
         //transform.position = Vector3.MoveTowards(transform.position, target, _speed);
-        RotateToTarget(target);
         _agent.Move(transform.TransformDirection(Vector3.forward * _speed));
     }
 
@@ -82,14 +86,11 @@ public class BotInterface : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, distanceToAttack + 1f))
         {
-            if (hit.collider.tag == "Player")
-            {
-               // hit.collider.GetComponent<AllyInterface>().GetDamage(_damage);
-                StartCoroutine(Reloading());
-                //laser
-                _lineRender.SetPosition(0, transform.position);
-                _lineRender.SetPosition(1, hit.collider.transform.position);
-            }
+            hit.collider.GetComponent<BotInterface>().GetDamage(_damage);
+            StartCoroutine(Reloading());
+            //laser
+            _lineRender.SetPosition(0, transform.position);
+            _lineRender.SetPosition(1, hit.collider.transform.position);
             Debug.Log(hit);
             
         }
@@ -97,8 +98,47 @@ public class BotInterface : MonoBehaviour
     }
     IEnumerator Reloading()
     {
+        _lineRender.enabled = true;
         canFire = false;
-        yield return new WaitForSeconds(_timeForReload);
+        yield return new WaitForSeconds(_timeForShot);
+        _lineRender.enabled = false;
+        yield return new WaitForSeconds(_timeForReload - _timeForShot);
         canFire = true;
+    }
+
+    public GameObject FindClosestEnemyShip()
+    {
+        float lastDistance = Mathf.Infinity;
+        _ships = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject target in _ships)
+        {
+            float between = Vector3.Distance(target.transform.position, transform.position);
+            if (between < lastDistance)
+            {
+                _closestShip = target;
+                lastDistance = between;
+            }
+        }
+        return _closestShip;
+
+    }
+    public GameObject FindClosestAllyShip()
+    {
+        float lastDistance = Mathf.Infinity;
+        Vector3 position= transform.position;
+        _ships = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject target in _ships)
+        {
+            //float between = Vector3.Distance(target.transform.position, transform.position);
+            Vector3 diff = target.transform.position - transform.position;
+            float between = diff.sqrMagnitude;
+            if (between < lastDistance)
+            {
+                _closestShip = target;
+                lastDistance = between;
+                Debug.Log(_closestShip.name);
+            }
+        }
+        return _closestShip;
     }
 }
