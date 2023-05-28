@@ -7,7 +7,7 @@ public class BotInterface : MonoBehaviour
 {
     //AI
     [Header("AI")]
-    [SerializeField] private NavMeshAgent _agent;
+    [SerializeField] public NavMeshAgent agent;
     //for movement
     [Header("For Movement")]
     [SerializeField] public float distanceToAttack;
@@ -31,7 +31,7 @@ public class BotInterface : MonoBehaviour
 
     private void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
         _lineRender = GetComponent<LineRenderer>();
         
         
@@ -40,7 +40,7 @@ public class BotInterface : MonoBehaviour
     public void GoToTarget(Vector3 target)
     {
         //transform.position = Vector3.MoveTowards(transform.position, target, _speed);
-        _agent.Move(transform.TransformDirection(Vector3.forward * _speed));
+        agent.Move(transform.TransformDirection(Vector3.forward * _speed));
     }
 
     public void RotateToTarget(Vector3 target)
@@ -60,6 +60,7 @@ public class BotInterface : MonoBehaviour
 
     private void Die()
     {
+        SelectObjects.unit.Remove(gameObject);
         Destroy(gameObject);
     }
 
@@ -78,20 +79,28 @@ public class BotInterface : MonoBehaviour
     {
         // go to point
         RotateToTarget(destination);
-        _agent.SetDestination(destination);
+        agent.SetDestination(destination);
     }
 
-    public void Attack()
+    public void Attack(Vector3 target)
     {
+        RotateToTarget(target);
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, distanceToAttack + 1f))
         {
-            hit.collider.GetComponent<BotInterface>().GetDamage(_damage);
-            StartCoroutine(Reloading());
-            //laser
-            _lineRender.SetPosition(0, transform.position);
-            _lineRender.SetPosition(1, hit.collider.transform.position);
-            Debug.Log(hit);
+            //when they stay in big group
+            if (hit.collider.tag == this.gameObject.tag)
+            {
+                GoToTarget(target);
+            }
+            else
+            {
+                hit.collider.GetComponent<BotInterface>().GetDamage(_damage);
+                StartCoroutine(Reloading());
+                //laser
+                _lineRender.SetPosition(0, transform.position);
+                _lineRender.SetPosition(1, hit.collider.transform.position);
+            }
             
         }
         
@@ -136,7 +145,6 @@ public class BotInterface : MonoBehaviour
             {
                 _closestShip = target;
                 lastDistance = between;
-                Debug.Log(_closestShip.name);
             }
         }
         return _closestShip;

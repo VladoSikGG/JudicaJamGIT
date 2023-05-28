@@ -11,23 +11,22 @@ public class BotMovement : BotInterface
     {
         GameObject allyShip = FindClosestAllyShip();
         //Debug.Log(Vector3.Distance(transform.position, _player.position));
-        if (distanceToSee >= Vector3.Distance(transform.position, allyShip.transform.position) && distanceToAttack < Vector3.Distance(transform.position, allyShip.transform.position))
+        if (distanceToSee > Vector3.Distance(transform.position, allyShip.transform.position) && distanceToAttack < Vector3.Distance(transform.position, allyShip.transform.position))
         {
-
+            RotateToTarget(allyShip.transform.position);
             GoToTarget(allyShip.transform.position);
-            
+            Debug.Log(allyShip.transform.position);
             Debug.Log("gotoplayer");
-            isPatrol = false;
         }
-        else if (distanceToAttack >= Vector3.Distance(transform.position, allyShip.transform.position) && canFire)
+        else if (distanceToAttack > Vector3.Distance(transform.position, allyShip.transform.position) && canFire)
         {
             //attack
-            RotateToTarget(allyShip.transform.position);
-            Attack();
+            Attack(allyShip.transform.position);
             Debug.Log("attack");
         }
         else if (distanceToSee < Vector3.Distance(transform.position, allyShip.transform.position))
         {
+            //patrol
             Debug.Log("Patrol");
            //when enemy not near go to point
             if (!isPatrol)
@@ -43,11 +42,7 @@ public class BotMovement : BotInterface
             {
                 isPatrol = false;
             }
-            //patrol
+            
         }
-        {
-           
-        }
-        
     }
 }
