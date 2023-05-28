@@ -5,8 +5,12 @@ using UnityEngine.AI;
 
 public class Ships : BotInterface
 {
+<<<<<<< HEAD
     [SerializeField] private Camera cam;
     private NavMeshAgent agent;
+=======
+    public Camera cam;
+>>>>>>> b781009976bc4c9bee3f82263d7b39d77c6ec6de
     public bool canMove;
     
 
@@ -23,11 +27,10 @@ public class Ships : BotInterface
             MoveObject();
 
         GameObject enemyShip = FindClosestEnemyShip();
-        if (Vector3.Distance(enemyShip.transform.position, transform.position) < distanceToAttack)
+        if (Vector3.Distance(enemyShip.transform.position, transform.position) < distanceToAttack && canFire)
         {
-            RotateToTarget(enemyShip.transform.position);
-            Attack();
-            
+            Attack(enemyShip.transform.position);
+            Debug.Log("AllyAttack");
         }
         
     }

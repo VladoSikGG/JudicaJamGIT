@@ -107,10 +107,10 @@ NavMeshSettings:
     serializedVersion: 2
     agentTypeID: 0
     agentRadius: 1
-    agentHeight: 2
-    agentSlope: 60
-    agentClimb: 1
-    ledgeDropHeight: 1
+    agentHeight: 1
+    agentSlope: 13.1
+    agentClimb: 0.01
+    ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
@@ -123,6 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: f27ebbc6d4b104559824688362b653a1, type: 2}
+<<<<<<< HEAD
 --- !u!1 &9976173
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +374,9 @@ Transform:
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &27848748
+=======
+--- !u!1 &276830316
+>>>>>>> b781009976bc4c9bee3f82263d7b39d77c6ec6de
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -965,7 +969,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7ed491c6e9e5e374ea7ba9d01b70e0cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1104,6 +1108,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+<<<<<<< HEAD
 --- !u!1 &724095089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,6 +1493,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878995212}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> b781009976bc4c9bee3f82263d7b39d77c6ec6de
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,6 +1507,7 @@ GameObject:
   - component: {fileID: 963194229}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1566,7 +1574,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: 21.4, z: -1}
+=======
+  m_LocalPosition: {x: 0, y: 20, z: 0}
+>>>>>>> b781009976bc4c9bee3f82263d7b39d77c6ec6de
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1586,6 +1598,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skin: {fileID: 11400000, guid: 46733d70668148c4ea23edd8af0b5aa5, type: 2}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c16721034324bd1afeea3b4db213a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offset: 25
+  _speed: 20
 --- !u!1 &976260717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,7 +1632,7 @@ GameObject:
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!65 &976260718
 BoxCollider:
@@ -1698,7 +1724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b0b45b6c8064a568b9b3d7afd2ab9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agent: {fileID: 976260724}
+  agent: {fileID: 0}
   distanceToAttack: 5
   distanceToSee: 25
   _speed: 0.01
@@ -2464,19 +2490,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983458cad13359046a67795c4d5c31b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agent: {fileID: 2080539018}
+  agent: {fileID: 0}
   distanceToAttack: 5
   distanceToSee: 0
-  _speed: 0
-  _turnSpeed: 0
+  _speed: 0.01
+  _turnSpeed: 0.1
   _distanceForPatrol: 0
   _hp: 5
-  _damage: 0
-  _timeForReload: 0
-  _timeForShot: 0
+  _damage: 2
+  _timeForReload: 2
+  _timeForShot: 0.4
   _ships: []
   canFire: 1
-  _lineRender: {fileID: 0}
+  _lineRender: {fileID: 2080539019}
   isPatrol: 0
   cam: {fileID: 963194227}
   canMove: 0
