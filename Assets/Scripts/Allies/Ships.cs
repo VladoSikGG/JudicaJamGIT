@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Ships : BotInterface
 {
-    public Camera cam;
+    [SerializeField] private Camera cam;
     private NavMeshAgent agent;
     public bool canMove;
     
@@ -13,7 +13,7 @@ public class Ships : BotInterface
 
     void Start()
     {
-        SelectObjects.unit.Add(gameObject); // ?????????? ???????? ? ?????? ???? ??????, ??????? ?? ????? ????????
+        SelectObjects.unit.Add(gameObject); // adding objects to an array of all units that we can select
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -36,10 +36,11 @@ public class Ships : BotInterface
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition); //????????? ????????? ????? ???
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition); //getting coordinates through a ray
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
-                agent.SetDestination(hit.point); //???????? ???????
+                if(hit.collider.tag != "Planet")
+                agent.SetDestination(hit.point); //object movement
         }
     }
 

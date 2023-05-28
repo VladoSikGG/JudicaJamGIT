@@ -22,8 +22,7 @@ public class AllyInterface : MonoBehaviour
         _hp -= value;
         if (_hp <= 0)
         {
-            Die();
-        }
+            Die();        }
     }
 
     private void Die()
