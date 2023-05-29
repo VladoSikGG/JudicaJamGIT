@@ -35,6 +35,6 @@ public class CameraMovement : MonoBehaviour
             cameraPosition.z += _speed * Time.deltaTime;
         }
 
-        transform.position = cameraPosition;
+        transform.position = new Vector3(Mathf.Clamp(cameraPosition.x, -500, 500), 50, Mathf.Clamp(cameraPosition.z, -500, 500));
     }
 }

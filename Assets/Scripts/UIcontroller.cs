@@ -11,7 +11,7 @@ public class UIcontroller : Planet
     [SerializeField] private Text textCristals;
     [SerializeField] private Text textPrice;
     [HideInInspector] public bool checkPlanet;
-    [HideInInspector] public float crystals;
+    [HideInInspector] public int crystals = 100;
     public int price;
     public Planet currentPlanet;
 

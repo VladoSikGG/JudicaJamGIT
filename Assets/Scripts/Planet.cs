@@ -73,6 +73,7 @@ public class Planet : MonoBehaviour
         exPlanet = true;
         canMine = true;
         this.gameObject.GetComponent<MeshRenderer>().material = _bought;
+        this.gameObject.GetComponent<AudioSource>().Play();
     }
     public IEnumerator MinePlanet() //coroutine to replenish crystals
     {

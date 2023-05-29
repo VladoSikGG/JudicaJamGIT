@@ -11,6 +11,7 @@ public class BotMovement : BotInterface
     {
         agent = GetComponent<NavMeshAgent>();
         _lineRender = GetComponent<LineRenderer>();
+        //  agent.speed = _speed;
     }
     // Update is called once per frame
     void Update()

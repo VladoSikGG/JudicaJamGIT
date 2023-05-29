@@ -43,7 +43,7 @@ public class SelectObjects : MonoBehaviour
 			{
 				// do something with selected objects
 				unitSelected[j].GetComponent<Ships>().canMove = true;
-				unitSelected[j].GetComponent<MeshRenderer>().material.color = Color.red;
+				unitSelected[j].GetComponent<MeshRenderer>().material.color = Color.yellow;
 			}
 		}
 	}
@@ -56,7 +56,7 @@ public class SelectObjects : MonoBehaviour
 			{
 				// undo what was done with the object
 				unitSelected[j].GetComponent<Ships>().canMove = false;
-				unitSelected[j].GetComponent<MeshRenderer>().material.color = Color.white;
+				unitSelected[j].GetComponent<MeshRenderer>().material.color = Color.green;
 			}
 		}
 	}

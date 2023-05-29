@@ -12,7 +12,7 @@ public class BotInterface : MonoBehaviour
     [Header("For Movement")]
     [SerializeField] public float distanceToAttack;
     [SerializeField] public float distanceToSee;
-    [SerializeField] private float _speed;
+    [SerializeField] public float _speed;
     [SerializeField] private float _turnSpeed;
     [SerializeField] private float _distanceForPatrol;
     //for entaraction
@@ -99,6 +99,7 @@ public class BotInterface : MonoBehaviour
                 //laser
                 _lineRender.SetPosition(0, transform.position);
                 _lineRender.SetPosition(1, hit.collider.transform.position);
+                this.gameObject.GetComponent<AudioSource>().Play();
             }
             
         }

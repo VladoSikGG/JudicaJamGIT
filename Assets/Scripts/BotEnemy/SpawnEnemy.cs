@@ -19,6 +19,6 @@ public class SpawnEnemy : MonoBehaviour
 
     private void CreateShip()
     {
-        Instantiate(_typeShips[Random.Range(0, _ships.Length)], new Vector3(Random.Range(-1000, 1000), 0, Random.Range(-1000, 1000)), Quaternion.identity);
+        Instantiate(_typeShips[Random.Range(0, 2)], new Vector3(Random.Range(-500, 500), 0, Random.Range(-500, 500)), Quaternion.identity);
     }
 }
