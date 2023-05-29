@@ -54,7 +54,7 @@ public class UIcontroller : MonoBehaviour
 
     private void AddPlanets() //adding planets
     {
-        for (int i = 0; i < 21; i = i++) 
+        for (int i = 0; i < 3; i = i++) 
         {
             Instantiate(planet, new Vector3(Random.Range(0 + i, 120 + i), 0, Random.Range(0 + i, 120 + i)), Quaternion.identity);
         }
