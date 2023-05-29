@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 6657986805785975174}
   - component: {fileID: 6657986805785975175}
   - component: {fileID: 6657986805785975192}
-  - component: {fileID: 6657986805785975173}
+  - component: {fileID: -8746955012960020659}
   - component: {fileID: 6657986805785975193}
   - component: {fileID: 6657986805785975172}
   - component: {fileID: 6657986805785975171}
   m_Layer: 0
-  m_Name: EnemyTank
-  m_TagString: Enemy
+  m_Name: AllyTank
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,7 +87,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6657986805785975173
+--- !u!114 &-8746955012960020659
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,13 +96,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6657986805785975194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0b0b45b6c8064a568b9b3d7afd2ab9c, type: 3}
+  m_Script: {fileID: 11500000, guid: 983458cad13359046a67795c4d5c31b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   distanceToAttack: 5
   distanceToSee: 30
-  _speed: 0.005
+  _speed: 0.003
   _turnSpeed: 0.01
   _distanceForPatrol: 10
   _hp: 100
@@ -111,9 +111,10 @@ MonoBehaviour:
   _timeForShot: 0.4
   _ships: []
   canFire: 1
-  _lineRender: {fileID: 6657986805785975172}
+  _lineRender: {fileID: 0}
   isPatrol: 0
-  des: {x: 0, y: 0, z: 0}
+  cam: {fileID: 0}
+  canMove: 0
 --- !u!65 &6657986805785975193
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -147,7 +148,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d6de5f1b2e50045b7b395887a53069e1, type: 2}
+  - {fileID: 2100000, guid: c5aef0e67f1874b01a7cae01f5e177f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

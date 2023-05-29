@@ -25,16 +25,13 @@ public class BotInterface : MonoBehaviour
     private GameObject _closestShip;
 
     public bool canFire = true;
-    [SerializeField]private LineRenderer _lineRender;
+    [SerializeField] public LineRenderer _lineRender;
     //public bool _havePoint;
     public bool isPatrol;
 
     private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        _lineRender = GetComponent<LineRenderer>();
-        
-        
+        agent = GetComponent<NavMeshAgent>();        
     }
 
     public void GoToTarget(Vector3 target)

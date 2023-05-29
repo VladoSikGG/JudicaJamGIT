@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BotMovement : BotInterface
 {
     public Vector3 des;
 
+    private void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        _lineRender = GetComponent<LineRenderer>();
+    }
     // Update is called once per frame
     void Update()
     {

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7526054979756494232}
   - component: {fileID: 7526054979756494233}
   m_Layer: 0
-  m_Name: Player
+  m_Name: ScoutAlly
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,8 +118,8 @@ MonoBehaviour:
   _speed: 0.01
   _turnSpeed: 0.1
   _distanceForPatrol: 0
-  _hp: 100
-  _damage: 2
+  _hp: 20
+  _damage: 5
   _timeForReload: 2
   _timeForShot: 0.4
   _ships: []

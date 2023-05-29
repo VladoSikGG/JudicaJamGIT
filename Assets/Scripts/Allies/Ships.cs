@@ -13,6 +13,9 @@ public class Ships : BotInterface
 
     void Start()
     {
+        cam = Camera.main;
+        agent = GetComponent<NavMeshAgent>();
+        _lineRender = GetComponent<LineRenderer>();
         SelectObjects.unit.Add(gameObject); // adding objects to an array of all units that we can select
         //agent = GetComponent<NavMeshAgent>();
     }

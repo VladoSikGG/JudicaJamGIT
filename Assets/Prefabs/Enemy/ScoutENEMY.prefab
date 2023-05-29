@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6657986805785975194
+--- !u!1 &7526054979756494230
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6657986805785975174}
-  - component: {fileID: 6657986805785975175}
-  - component: {fileID: 6657986805785975192}
-  - component: {fileID: 6657986805785975173}
-  - component: {fileID: 6657986805785975193}
-  - component: {fileID: 6657986805785975172}
-  - component: {fileID: 6657986805785975171}
+  - component: {fileID: 7526054979756494234}
+  - component: {fileID: 7526054979756494229}
+  - component: {fileID: 7526054979756494228}
+  - component: {fileID: 7526054979756494231}
+  - component: {fileID: 6211572179899431320}
+  - component: {fileID: 7526054979756494232}
+  - component: {fileID: 7526054979756494233}
   m_Layer: 0
-  m_Name: EnemyTank
+  m_Name: ScoutENEMY
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6657986805785975174
+--- !u!4 &7526054979756494234
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6657986805785975194}
+  m_GameObject: {fileID: 7526054979756494230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.6}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6657986805785975175
+--- !u!33 &7526054979756494229
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6657986805785975194}
-  m_Mesh: {fileID: 4493585093827132993, guid: 26b1048266e5f41f88af6efeb1290299, type: 3}
---- !u!23 &6657986805785975192
+  m_GameObject: {fileID: 7526054979756494230}
+  m_Mesh: {fileID: -567259905036692206, guid: d5026f0a7426d44c7b22d04afa8735a0, type: 3}
+--- !u!23 &7526054979756494228
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6657986805785975194}
+  m_GameObject: {fileID: 7526054979756494230}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f58fb9e6a3a1d4e14bb2ae682238b22c, type: 2}
+  - {fileID: 2100000, guid: 86898f7e8854742cc9e0312040a687f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,53 +87,75 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6657986805785975173
+--- !u!65 &7526054979756494231
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526054979756494230}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 23.893202, y: 10.543879, z: 37.1031}
+  m_Center: {x: 0.1627178, y: 0.4498696, z: 1.2560433}
+--- !u!114 &6211572179899431320
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6657986805785975194}
+  m_GameObject: {fileID: 7526054979756494230}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0b0b45b6c8064a568b9b3d7afd2ab9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  distanceToAttack: 5
-  distanceToSee: 30
-  _speed: 0.005
-  _turnSpeed: 0.01
-  _distanceForPatrol: 10
-  _hp: 100
-  _damage: 2
-  _timeForReload: 5
+  distanceToAttack: 10
+  distanceToSee: 20
+  _speed: 0.01
+  _turnSpeed: 0.1
+  _distanceForPatrol: 20
+  _hp: 20
+  _damage: 5
+  _timeForReload: 2
   _timeForShot: 0.4
   _ships: []
   canFire: 1
-  _lineRender: {fileID: 6657986805785975172}
+  _lineRender: {fileID: 0}
   isPatrol: 0
   des: {x: 0, y: 0, z: 0}
---- !u!65 &6657986805785975193
-BoxCollider:
+--- !u!195 &7526054979756494232
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6657986805785975194}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 7526054979756494230}
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.3839974, y: 4.745903, z: 11.5779085}
-  m_Center: {x: 0, y: 0.54160833, z: -4.7889543}
---- !u!120 &6657986805785975172
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!120 &7526054979756494233
 LineRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6657986805785975194}
+  m_GameObject: {fileID: 7526054979756494230}
   m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -226,25 +248,3 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!195 &6657986805785975171
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6657986805785975194}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 0.7
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
