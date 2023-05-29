@@ -12,14 +12,15 @@ public class UIcontroller : Planet
     [SerializeField] private Text textPrice;
     [HideInInspector] public bool checkPlanet;
     [HideInInspector] public float crystals;
-    private int price;
+    public int price;
+    public Planet currentPlanet;
 
     void Start()
     {
         // AddPlanets();//adding planets
         planet = this.gameObject;
         panel.SetActive(false);
-        price =  Random.Range(1, 12);
+
     }
 
     void Update()
@@ -40,9 +41,8 @@ public class UIcontroller : Planet
         if (price <= crystals)
         {
             crystals -= price;
-            GameObject ExPlanet = Instantiate(exPlanett, planet.transform.position, Quaternion.identity); //replacing an old planet with a new one
             checkPlanet = false;
-            ExPlanet.GetComponent<Planet>().BuyPlanet();
+            currentPlanet.BuyPlanet();
         }
     }
 

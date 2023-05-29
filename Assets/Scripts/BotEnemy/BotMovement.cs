@@ -16,7 +16,6 @@ public class BotMovement : BotInterface
             agent.Stop();
             RotateToTarget(allyShip.transform.position);
             GoToTarget(allyShip.transform.position);
-            Debug.Log(allyShip.transform.position);
             Debug.Log("gotoplayer");
         }
         else if (distanceToAttack > Vector3.Distance(transform.position, allyShip.transform.position) && canFire)
