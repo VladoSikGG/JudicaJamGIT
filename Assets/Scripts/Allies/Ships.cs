@@ -23,11 +23,10 @@ public class Ships : BotInterface
             MoveObject();
 
         GameObject enemyShip = FindClosestEnemyShip();
-        if (Vector3.Distance(enemyShip.transform.position, transform.position) < distanceToAttack)
+        if (Vector3.Distance(enemyShip.transform.position, transform.position) < distanceToAttack && canFire)
         {
-            RotateToTarget(enemyShip.transform.position);
-            Attack();
-            
+            Attack(enemyShip.transform.position);
+            Debug.Log("AllyAttack");
         }
         
     }
