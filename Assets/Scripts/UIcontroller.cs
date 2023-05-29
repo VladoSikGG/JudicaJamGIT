@@ -6,18 +6,18 @@ using UnityEngine.UI;
 public class UIcontroller : Planet
 {
     [SerializeField] private GameObject panel;
-    [SerializeField] private GameObject exPlanet;
+    [SerializeField] private GameObject exPlanett;
     [SerializeField] private GameObject planet;
     [SerializeField] private Text textCristals;
     [SerializeField] private Text textPrice;
     [HideInInspector] public bool checkPlanet;
-    public float crystals = 60;
+    [HideInInspector] public float crystals;
     private int price;
 
     void Start()
     {
-        AddPlanets();//adding planets
-
+        // AddPlanets();//adding planets
+        planet = this.gameObject;
         panel.SetActive(false);
         price =  Random.Range(1, 12);
     }
@@ -40,11 +40,9 @@ public class UIcontroller : Planet
         if (price <= crystals)
         {
             crystals -= price;
-            Instantiate(exPlanet, planet.transform.position, Quaternion.identity); //replacing an old planet with a new one
-            Destroy(planet);
+            GameObject ExPlanet = Instantiate(exPlanett, planet.transform.position, Quaternion.identity); //replacing an old planet with a new one
             checkPlanet = false;
-            exPlanet.GetComponent<Planet>().exPlanet = true;
-            StartCoroutine(MinePlanet());
+            ExPlanet.GetComponent<Planet>().BuyPlanet();
         }
     }
 

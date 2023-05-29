@@ -7,44 +7,50 @@ public class Planet : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject canvas;
     public bool exPlanet;
-    private bool _isMine;
+    public bool canMine;
 
-
-    void Start()
+    private void Start()
     {
-        if (exPlanet)
-            StartCoroutine(MinePlanet());
+        cam = Camera.main;
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
     }
 
     void Update()
     {
         CheckRay();
+
+        if (exPlanet && canMine)
+        {
+            StartCoroutine(MinePlanet());
+        }
     }
 
     void CheckRay()
     {
-        if (!exPlanet)
-        {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) )
             {
                 Ray ray = cam.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.tag == "Planet")
+                    if (hit.collider.tag == "Planet" && !exPlanet)
                         canvas.GetComponent<UIcontroller>().checkPlanet = true;
                 }
             }
-        }
-
     }
 
+    public void BuyPlanet()
+    {
+        exPlanet = true;
+        canMine = true;
+        Destroy(this.gameObject);
+    }
     public IEnumerator MinePlanet() //coroutine to replenish crystals
     {
-        exPlanet = false;
+        canMine = false;
         canvas.GetComponent<UIcontroller>().crystals++;
         Debug.Log("Cistals");
-
-        yield return new WaitForSeconds(60f);
+        yield return new WaitForSeconds(2f);
+        canMine = true;
     }
 }
