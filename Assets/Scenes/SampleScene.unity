@@ -413,8 +413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 446.1953, y: 14.683685}
-  m_SizeDelta: {x: -892.3906, y: -478.0458}
+  m_AnchoredPosition: {x: 159.3, y: 114.21}
+  m_SizeDelta: {x: -318.6053, y: -228.4183}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &289768572
 GameObject:
@@ -990,6 +990,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878995212}
   m_CullTransparentMesh: 1
+--- !u!195 &894277986 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 7526054979756494232, guid: c7013a80745bc4bfeb869089cf13aed8, type: 3}
+  m_PrefabInstance: {fileID: 2128332952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,8 +1106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c16721034324bd1afeea3b4db213a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offset: 0
-  _speed: 0
+  _offset: 30
+  _speed: 30
 --- !u!1 &1262475476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,7 +1555,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6657986805785975174, guid: e111bd7b614da4dc5aa2eba5a788b7dd, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6657986805785975174, guid: e111bd7b614da4dc5aa2eba5a788b7dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1631,10 +1636,10 @@ RectTransform:
   m_Father: {fileID: 1467353502}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -517.5, y: 265.5}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0.85800004}
+  m_AnchorMax: {x: 0.29172212, y: 1}
+  m_AnchoredPosition: {x: -1, y: 0}
+  m_SizeDelta: {x: -1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2066896011
 CanvasRenderer:
@@ -1733,5 +1738,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7526054979756494235, guid: c7013a80745bc4bfeb869089cf13aed8, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 963194227}
+    - target: {fileID: 7526054979756494235, guid: c7013a80745bc4bfeb869089cf13aed8, type: 3}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 894277986}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7013a80745bc4bfeb869089cf13aed8, type: 3}

@@ -5,12 +5,8 @@ using UnityEngine.AI;
 
 public class Ships : BotInterface
 {
-<<<<<<< HEAD
+
     [SerializeField] private Camera cam;
-    private NavMeshAgent agent;
-=======
-    public Camera cam;
->>>>>>> b781009976bc4c9bee3f82263d7b39d77c6ec6de
     public bool canMove;
     
 
@@ -18,7 +14,7 @@ public class Ships : BotInterface
     void Start()
     {
         SelectObjects.unit.Add(gameObject); // adding objects to an array of all units that we can select
-        agent = GetComponent<NavMeshAgent>();
+        //agent = GetComponent<NavMeshAgent>();
     }
 
     void Update()

@@ -7,6 +7,7 @@ public class Planet : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject canvas;
     public bool exPlanet;
+    private bool _isMine;
 
 
     void Start()
@@ -38,15 +39,12 @@ public class Planet : MonoBehaviour
 
     }
 
-    IEnumerator MinePlanet() //coroutine to replenish crystals
+    public IEnumerator MinePlanet() //coroutine to replenish crystals
     {
-        while (true)
-        {
-            canvas.GetComponent<UIcontroller>().crystals++;
-            Debug.Log("Cistals");
+        exPlanet = false;
+        canvas.GetComponent<UIcontroller>().crystals++;
+        Debug.Log("Cistals");
 
-            yield return new WaitForSeconds(60f);
-        }
-
+        yield return new WaitForSeconds(60f);
     }
 }

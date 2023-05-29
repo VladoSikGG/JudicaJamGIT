@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIcontroller : MonoBehaviour
+public class UIcontroller : Planet
 {
     [SerializeField] private GameObject panel;
     [SerializeField] private GameObject exPlanet;
@@ -11,7 +11,7 @@ public class UIcontroller : MonoBehaviour
     [SerializeField] private Text textCristals;
     [SerializeField] private Text textPrice;
     [HideInInspector] public bool checkPlanet;
-    [HideInInspector] public float crystals = 0;
+    public float crystals = 60;
     private int price;
 
     void Start()
@@ -37,13 +37,14 @@ public class UIcontroller : MonoBehaviour
 
     public void ExploreButton()
     {
-        if (price == crystals)
+        if (price <= crystals)
         {
-            crystals = crystals - price;
+            crystals -= price;
             Instantiate(exPlanet, planet.transform.position, Quaternion.identity); //replacing an old planet with a new one
             Destroy(planet);
             checkPlanet = false;
             exPlanet.GetComponent<Planet>().exPlanet = true;
+            StartCoroutine(MinePlanet());
         }
     }
 
@@ -56,7 +57,7 @@ public class UIcontroller : MonoBehaviour
     {
         for (int i = 0; i < 3; i = i++) 
         {
-            Instantiate(planet, new Vector3(Random.Range(0 + i, 120 + i), 0, Random.Range(0 + i, 120 + i)), Quaternion.identity);
+            Instantiate(planet, new Vector3(Random.Range(0, 120), 0, Random.Range(0, 120)), Quaternion.identity);
         }
     }
 }
