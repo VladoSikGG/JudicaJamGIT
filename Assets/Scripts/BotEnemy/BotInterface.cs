@@ -56,8 +56,9 @@ public class BotInterface : MonoBehaviour
     }
 
     private void Die()
-    {
+    { 
         SelectObjects.unit.Remove(gameObject);
+        SelectObjects.unitSelected.Remove(gameObject);
         Destroy(gameObject);
         //removal from unitSelected
 
@@ -88,11 +89,7 @@ public class BotInterface : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, distanceToAttack + 1f))
         {
             //when they stay in big group
-            if (hit.collider.tag == this.gameObject.tag)
-            {
-                GoToTarget(target);
-            }
-            else
+            if (hit.collider.tag != this.gameObject.tag)
             {
                 hit.collider.GetComponent<BotInterface>().GetDamage(_damage);
                 StartCoroutine(Reloading());
@@ -101,7 +98,6 @@ public class BotInterface : MonoBehaviour
                 _lineRender.SetPosition(1, hit.collider.transform.position);
                 this.gameObject.GetComponent<AudioSource>().Play();
             }
-            
         }
         
     }

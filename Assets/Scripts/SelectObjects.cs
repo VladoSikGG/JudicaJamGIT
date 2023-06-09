@@ -42,8 +42,13 @@ public class SelectObjects : MonoBehaviour
 			for (int j = 0; j < unitSelected.Count; j++)
 			{
 				// do something with selected objects
-				unitSelected[j].GetComponent<Ships>().canMove = true;
-				unitSelected[j].GetComponent<MeshRenderer>().material.color = Color.yellow;
+				if (unitSelected[j] != null)
+                {
+					unitSelected[j].GetComponent<Ships>().canMove = true;
+					unitSelected[j].GetComponent<MeshRenderer>().material.color = Color.yellow;
+				}
+				
+				
 			}
 		}
 	}
@@ -54,9 +59,13 @@ public class SelectObjects : MonoBehaviour
 		{
 			for (int j = 0; j < unitSelected.Count; j++) 
 			{
-				// undo what was done with the object
-				unitSelected[j].GetComponent<Ships>().canMove = false;
-				unitSelected[j].GetComponent<MeshRenderer>().material.color = Color.green;
+				if (unitSelected[j] != null)
+                {
+					// undo what was done with the object
+					unitSelected[j].GetComponent<Ships>().canMove = false;
+					unitSelected[j].GetComponent<MeshRenderer>().material.color = Color.green;
+				}
+					
 			}
 		}
 	}
@@ -101,7 +110,8 @@ public class SelectObjects : MonoBehaviour
 
 					if (rect.Contains(tmp)) // checking if the current object is in the frame
 					{
-						if (unitSelected.Count == 0)
+						unitSelected.Add(unit[j]);
+						/* if (unitSelected.Count == 0)
 						{
 							unitSelected.Add(unit[j]);
 						}
@@ -109,6 +119,7 @@ public class SelectObjects : MonoBehaviour
 						{
 							unitSelected.Add(unit[j]);
 						}
+						*/
 					}
 				}
 			}
